@@ -1,0 +1,149 @@
+// colors
+$primary: #0094E7;
+$secondary: #f3f3f3;
+$white: #fff ;
+$black: #000;
+
+// font
+@mixin roboto{
+    font-family: 'Roboto', sans-serif;
+}
+
+// tiles
+.lp-tiles{
+    .lp-container{
+        max-width: 1084px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+        text-align: center;
+    }
+
+    &__wrapper{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: stretch;
+        width: calc(100% + 20px);
+        margin-left: -10px;
+
+    }
+
+    &__tile{
+        width: 256px;
+        height: auto;
+        background-color: $white;
+        box-shadow: 0 1px 4px rgba($color: $black, $alpha: .15);
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin: 10px;
+        transition: .3s ease-in-out;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+
+        &:hover{
+            box-shadow: 0 2px 6px rgba($color: $black, $alpha: .15);
+
+            .lp-tiles__tile-content--name{
+                color: $black;
+            }
+
+            path{
+                fill: $black;
+            }
+        }
+    }
+
+    &__tile-content{
+        text-align: left;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        figure{
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 10px 0 0;
+        }
+
+        &--image{
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        &--name{
+            @include roboto();
+            font-size: 14px;
+            font-weight: 500;
+            display: inline-block;
+            color: #535252;
+            line-height: 1.4;
+            transition: .3s ease-in-out;
+            width: 160px;
+            text-decoration: underline;
+            text-decoration-color: currentcolor;
+            text-decoration-color: #fff;
+        }
+    }
+
+    &__tile-arrow{
+        width: 16px;
+        height: 16px;
+
+        svg{
+            max-width: 100%;
+            max-height: 100%;
+            width: 16px;
+            height: 16px;
+            transition: .3s ease-in-out;
+            
+            path{
+                transition: .3s ease-in-out;
+            }
+        }
+    }
+}
+
+// LAYOUT-0
+.layout-0 #articlePage{
+    .lp-container{
+        max-width: 860px;
+    }
+
+    .lp-tiles{
+        &__tile{
+            width: 200px;
+        }
+
+        &__tile-content--name{
+            width: 110px;
+        }
+    }
+} 
+    
+// mobile and app
+@media only screen and (max-width: 980px){
+    .mobile #articlePage,
+    .mobileapp #articlePage{
+        .lp-container{
+            padding-left: 32px;
+            padding-right: 32px;
+            max-width: 100%;
+        }
+
+        .lp-tiles{
+            &__tile{
+                width: 200px;
+            }
+    
+            &__tile-content--name{
+                width: 110px;
+            }
+        }
+    }
+}
